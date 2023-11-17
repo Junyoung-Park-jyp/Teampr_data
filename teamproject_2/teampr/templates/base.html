@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../static/bootstrap/bootstrap.min.css">
+  <script>
+    // 각 체크박스 그룹에 대한 이벤트 처리
+  
+    const prices = document.querySelectorAll('input[name="price"]');
+    prices.forEach(price => {
+        price.addEventListener('click', () => {
+            prices.forEach(cb => {
+                if (cb !== price) {
+                    cb.checked = false;
+                }
+            });
+        });
+    });
+  
+    const ratings = document.querySelectorAll('input[name="rating"]');
+    ratings.forEach(rating => {
+        rating.addEventListener('click', () => {
+            ratings.forEach(cb => {
+                if (cb !== rating) {
+                    cb.checked = false;
+                }
+            });
+        });
+    });
+  </script>
+</head>
+<body>
+  <!-- 기본에 삽입할 내용 -->
+  {% block content %}
+  {% endblock %}  
+</body>
+</html>
