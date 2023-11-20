@@ -17,6 +17,44 @@ html.fixed {
     overflow-y: scroll;
     width: 100%;
 }
+.floor {
+    height: 360px;
+    background: 0 0 / cover no-repeat fixed;
+    margin-top: 50px;
+}
+
+.beer {
+    background-image: url(https://cdn.pixabay.com/photo/2014/01/28/15/08/beer-253791_1280.jpg);
+}
+
+.wine {
+    background-image: url(https://cdn.pixabay.com/photo/2021/10/07/15/12/wine-6688901_1280.jpg);
+}
+
+.wisky {
+    background-image: url(https://cdn.pixabay.com/photo/2014/04/05/11/40/bar-316626_1280.jpg);
+}
+
+h1 {
+    font-size: 90px;
+    font-weight: bold;
+    padding: 5vh;
+    color: #fff;
+}
+
+figure {
+    display: flex;
+    position: absolute;
+    padding-left: 70px;
+    gap: 30px;
+    color: #fff;
+}
+
+.bgtext {
+    font-size: 3.5rem;
+    line-height: 7vh;
+    padding-left: 100px;
+}
 body {
     height: 10000px;
     font-family: "Roboto", "Noto Sans KR", sans-serif;
