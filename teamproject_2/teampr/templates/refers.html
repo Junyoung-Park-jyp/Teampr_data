@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+  <div class="row">
+      <div class="container_refers col-8"> 
+          <div class="card">
+              <img src="{{ url_for('static', filename='image/vivino.png') }}" class="card-img-top" alt="...">
+              <div class="card-body">
+                  <h5 class="card-title">Vivino</h5>
+                  <p class="card-text">세계 각지의 와인을 카테고리 별로 검색하고 리뷰 확인 가능</p>
+                  <a href="https://www.vivino.com/" class="btn_page">visit page</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div>
+  <div class="row">
+      <div class="container_refers col-8"> 
+          <div class="card">
+              <img src="{{ url_for('static', filename='image/ratebeer.png') }}" class="card-img-top" alt="...">
+              <div class="card-body">
+                  <h5 class="card-title">Ratebeer</h5>
+                  <p class="card-text">다양한 맥주와 그에 관한 리뷰를 확인 가능한 세계 최대의 맥주 커뮤니티 중 하나</p>
+                  <a href="https://www.ratebeer.com/" class="btn_page">visit page</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div>
+  <div class="row">
+      <div class="container_refers col-8"> 
+          <div class="card">
+              <img src="{{ url_for('static', filename='image/kaja.png') }}" class="card-img-top" alt="...">
+              <div class="card-body">
+                  <h5 class="card-title">가자 주류</h5>
+                  <p class="card-text">위스키, 와인 등의 다양한 주류를 다루고 구매할 수 있는 사이트</p>
+                  <a href="https://www.kaja.co.kr/" class="btn_page">visit page</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+{% endblock %}

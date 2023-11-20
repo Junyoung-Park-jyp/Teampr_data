@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container">
-  <form method="post" id="filterForm">
+<div class="container_refers">
+  <form method="post"  id="whiskeyForm">
     {{ form.csrf_token }}
     <!-- 오류표시 Start -->
     {% if form.errors %}
@@ -17,20 +17,27 @@
     </div>
     {% endif %}
     <!-- 오류표시 End -->
-    <label for="">와인 종류:</label><br>
-    <input type="checkbox" name="wine_type" value="red"> 레드 와인<br>
-    <input type="checkbox" name="wine_type" value="white"> 화이트 와인<br>
-  
-    <label for="">가격대:</label><br>
-    <input type="checkbox" name="price" value="low"> 5만원 이하<br>
-    <input type="checkbox" name="price" value="medium"> 10만원 이하<br>
-    <input type="checkbox" name="price" value="high"> 15만원 이하<br>
-  
-    <label for="">별점:</label><br>
-    <input type="checkbox" name="score" value="4"> 별점 4점 이상<br>
-    <input type="checkbox" name="score" value="3.5"> 별점 3.5점 이상<br>
-    <input type="checkbox" name="score" value="3"> 별점 3점 이상<br>
-  
+    <div class="row wine_form">
+        <div class="col-4">
+            <label for="">용량:</label><br>
+            <input type="checkbox" name="volume" value="500"> 500ml 이상<br>
+            <input type="checkbox" name="volume" value="1000"> 1000ml 이상<br>
+        </div>
+        <div class="col-4">
+            <label for="">가격대:</label><br>
+            <input type="checkbox" name="price" value="low">20만원 이하<br>
+            <input type="checkbox" name="price" value="medium">50만원 이하<br>
+            <input type="checkbox" name="price" value="high">가격 제한 없음<br>
+        </div>
+        
+        <div class="col-4">
+            <label for="">숙성 기간:</label><br>
+            <input type="checkbox" name="year" value="10"> 10년 이상<br>
+            <input type="checkbox" name="year" value="15"> 15년 이상<br>
+            <input type="checkbox" name="year" value="20"> 20년 이상<br>
+        </div>
+
+    </div>
     <button type="submit">검색</button>
   </form>
 </div>

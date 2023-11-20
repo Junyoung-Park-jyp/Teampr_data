@@ -40,3 +40,14 @@ class NonAlcoholBeer(db.Model):
     review_text = db.Column(db.Text(), nullable=False)
     review_date = db.Column(db.Date(), nullable=False)
     review_text2 = db.Column(db.Text())
+
+class Whiskey(db.Model):
+    __tablename__ = 'whiskey_data'
+    index = db.Column(db.Integer, primary_key=True)
+    prod_name = db.Column(db.String(200), nullable=False) 
+    prod_link = db.Column(db.Text(), nullable=False)
+    price = db.Column(db.Integer, nullable=False)
+    year = db.Column(db.Integer, nullable=False)
+    origin = db.Column(db.String(50), nullable=False)
+    volume = db.Column(db.Integer, nullable=False)
+    content = db.Column(db.Float(), nullable=False)

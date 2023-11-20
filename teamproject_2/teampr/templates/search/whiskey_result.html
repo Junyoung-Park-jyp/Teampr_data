@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>검색 결과</h1>
+{% if whiskey_filter %}
+  <h2>검색 조건:</h2>
+  <p>용량: {{ whiskey_filter.volume}}ml 이상</p>
+  <p>가격대: {{ whiskey_filter.price }}원 이상</p>
+  <p>숙성 기간: {{ whiskey_filter.year }}년 이상</p>
+{% endif %}
+{% for whiskey in filtered_whiskeys %}
+{{ whiskey.prod_name }}
+{{ whiskey.volume }}
+{{ whiskey.price }}
+{{ whiskey.year }}
+
+<p></p>
+{% endfor %}
+{% endblock %}

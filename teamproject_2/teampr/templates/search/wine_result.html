@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+{% if wine_filter %}
+  <div class="container_refers">
+    <div class="row">
+      <div class="card ml-4">
+        <div class="card-body">
+          <h4>검색 조건</h2>
+          <p>와인 종류: {{ wine_filter.wine_type }}</p>
+          <p>가격대: {{ wine_filter.price }}원 이하</p>
+          <p>별점: {{ wine_filter.score }}점 이상</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+<h1 class="search_result">검색 결과</h1>
+<div class="container_refers lg-10">
+  <div class="row lg-10">
+  {% for wine in filtered_wines %}
+    <div class="col-3">
+      <div class="card">
+        <div class="card-body col-8">
+          <a href="{{ wine.prod_link }}">
+            <h5 class="card-title">{{ wine.prod_name }}</h5>
+          </a>
+          <p class="card-text">와인 종류: {{ wine.wine_type }}</p>
+          <p class="card-text">가격: {{ wine.price }}원</p>
+          <p class="card-text">별점: {{ wine.score }}점</p>
+        </div>
+        {% if wine.wine_type == 'Red wine' %}
+        <div class="card-body col-3">
+          <img src="{{url_for('static', filename='image/redwine.jpg')}}" alt="">
+        </div>
+        {% endif %}
+        {% if wine.wine_type == 'White wine' %}
+        <div class="card-body col-3">
+          <img src="{{url_for('static', filename='image/whitewine.jpg')}}" alt="">
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% endblock %}

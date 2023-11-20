@@ -1,20 +1,39 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>와인 고르기</title>
-</head>
-<body>
-  {% if wine_list %}
-  <ul>
-    {% for wine in wine_list %}
-        <li><a href="/detail/{{ wine.ID }}/">{{ wine.price}}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>해당하는 상품이 없습니다.</p>
-{% endif %}
-    <a href="{{ url_for('main.search') }}" class="btn">와인 검색하기</a>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="swiper-container mySwiper" scrollbar-hide="true">
+  <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="{{ url_for('static', filename='image/wine1.png') }}" alt=""></div>
+      <div class="swiper-slide"><img src="{{ url_for('static', filename='image/beer2.png') }}" alt=""></div>
+      <div class="swiper-slide"><img src="{{ url_for('static', filename='image/whiskey1.png') }}" alt=""></div>
+      <div class="swiper-slide"><img src="{{ url_for('static', filename='image/wine1.png') }}" alt=""></div>
+      <div class="swiper-slide"><img src="{{ url_for('static', filename='image/beer1.jpg') }}" alt=""></div>
+      <div class="swiper-slide"><img src="{{ url_for('static', filename='image/whiskey2.png') }}" alt=""></div>
+      <div class="swiper-slide"><img src="{{ url_for('static', filename='image/wine2.png') }}" alt=""></div>
+      <div class="swiper-slide"><img src="{{ url_for('static', filename='image/beer2.png') }}" alt=""></div>
+      <div class="swiper-slide"><img src="{{ url_for('static', filename='image/whiskey1.png') }}" alt=""></div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      var mySwiper = new Swiper('.swiper-container', {
+          slidesPerView: 3, // 한 번에 표시할 슬라이드 수를 설정 (여기서는 2개로 설정)
+          spaceBetween: 20, // 슬라이드 사이의 간격 설정 (옵션)
+          loop: true, // 무한 반복 설정
+          autoplay: {
+              delay: 3000, // 자동 재생 간격 (3초)
+              disableOnInteraction: false, // 사용자 상호 작용 후에도 자동 재생 유지
+          },
+          pagination: {
+              el: '.swiper-pagination',
+              clickable: true,
+          },
+          navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+          },
+      });
+  });
+</script>
+{% endblock %}

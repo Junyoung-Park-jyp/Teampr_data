@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container_refers">
+  <form method="post"  id="filterForm">
+    {{ form.csrf_token }}
+    <!-- 오류표시 Start -->
+    {% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+        {% for field, errors in form.errors.items() %}
+        <strong>{{ form[field].label }}</strong>
+        <ul>
+            {% for error in errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <!-- 오류표시 End -->
+    <div class="row wine_form">
+        <div class="col-4">
+            <label for="">와인 종류:</label><br>
+            <input type="checkbox" name="wine_type" value="red"> 레드 와인<br>
+            <input type="checkbox" name="wine_type" value="white"> 화이트 와인<br>
+        </div>
+        <div class="col-4">
+            <label for="">가격대:</label><br>
+            <input type="checkbox" name="price" value="low"> 5만원 이하<br>
+            <input type="checkbox" name="price" value="medium"> 10만원 이하<br>
+            <input type="checkbox" name="price" value="high"> 15만원 이하<br>
+        </div>
+        
+        <div class="col-4">
+            <label for="">별점:</label><br>
+            <input type="checkbox" name="score" value="4"> 별점 4점 이상<br>
+            <input type="checkbox" name="score" value="3.5"> 별점 3.5점 이상<br>
+            <input type="checkbox" name="score" value="3"> 별점 3점 이상<br>
+        </div>
+
+    </div>
+    <button type="submit">검색</button>
+  </form>
+</div>
+<script>
+  // 각 체크박스 그룹에 대한 이벤트 처리
+  const prices = document.querySelectorAll('input[name="price"]');
+  prices.forEach(price => {
+      price.addEventListener('click', () => {
+          prices.forEach(cb => {
+              if (cb !== price) {
+                  cb.checked = false;
+              }
+          });
+      });
+  });
+
+  const ratings = document.querySelectorAll('input[name="rating"]');
+  ratings.forEach(rating => {
+      rating.addEventListener('click', () => {
+          ratings.forEach(cb => {
+              if (cb !== rating) {
+                  cb.checked = false;
+              }
+          });
+      });
+  });
+</script>
+{% endblock %}

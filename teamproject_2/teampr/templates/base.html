@@ -1,39 +1,96 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="../static/bootstrap/bootstrap.min.css">
-  <script>
-    // 각 체크박스 그룹에 대한 이벤트 처리
-  
-    const prices = document.querySelectorAll('input[name="price"]');
-    prices.forEach(price => {
-        price.addEventListener('click', () => {
-            prices.forEach(cb => {
-                if (cb !== price) {
-                    cb.checked = false;
-                }
+    <html lang="ko">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Search your liquor!</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
+            rel="stylesheet" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+        <script defer type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+        <script>
+            // 각 체크박스 그룹에 대한 이벤트 처리
+
+            const prices = document.querySelectorAll('input[name="price"]');
+            prices.forEach(price => {
+                price.addEventListener('click', () => {
+                    prices.forEach(cb => {
+                        if (cb !== price) {
+                            cb.checked = false;
+                        }
+                    });
+                });
             });
-        });
-    });
-  
-    const ratings = document.querySelectorAll('input[name="rating"]');
-    ratings.forEach(rating => {
-        rating.addEventListener('click', () => {
-            ratings.forEach(cb => {
-                if (cb !== rating) {
-                    cb.checked = false;
-                }
+
+            const ratings = document.querySelectorAll('input[name="rating"]');
+            ratings.forEach(rating => {
+                rating.addEventListener('click', () => {
+                    ratings.forEach(cb => {
+                        if (cb !== rating) {
+                            cb.checked = false;
+                        }
+                    });
+                });
             });
-        });
-    });
-  </script>
-</head>
-<body>
-  <!-- 기본에 삽입할 내용 -->
-  {% block content %}
-  {% endblock %}  
-</body>
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        
+
+    </head>
+    <body>
+        <!-- header -->
+        <header>
+            <div class="inner">
+                <ul class="menu">
+                    <li class="teamname"><a href="{{ url_for('main.index') }}">Find your Liquor!</li>
+                    <li><a href="{{ url_for('main.refers') }}">Refer-sites</a></li>
+                    <li><a href="{{ url_for('main.wine_search') }}">Wine</a></li>
+                    <li><a href="{{ url_for('main.beer_search') }}">Beer</a></li>
+                    <li><a href="{{ url_for('main.non_alcohol_search') }}">Non-alchol</a></li>
+                    <li><a href="{{ url_for('main.whiskey_search') }}">Whiskey</a></li>
+                    <li><a href="#">Teammates</a></li>
+                    <li class="search-starter"><a href="javascript:void(0)">검색</a></li>
+                </ul>
+        </header>
+        
+        <!-- nav -->
+        <!-- <nav>
+            <div class="inner">
+                <h1>Liquor Search</h1>
+                <ul class="menu">
+                    <li class="active"><a href="javascript:void(0)">개요</a></li>
+                    <li><a href="javascript:void(0)">iPad를 선택하는 이유</a></li>
+                    <li><a href="javascript:void(0)">제품 사양</a></li>
+                </ul>
+                <button class="btn">구입하기</button>
+            </div>
+        </nav> -->
+        <footer>
+            <div class="inner">
+                <div class="how-to-shop">
+                    산대특 2기 2조 '박준영과 아이들' 팀 프로젝트
+                </div>
+                <div class="legal">
+                    <div class="copyright">
+                        Copyright © <span class="this-year"></span> Himedia Acadmey
+                    </div>
+                    <ul>
+                        <li><a href="https://github.com/Junyoung-Park-jyp/Teampr_data">github source-code</a></li>
+                        <li><a href="javascript:void(0)">크롤링 사이트: Referred 참조</a></li>
+                    </ul>
+                    <div class="locale">대한민국</div>
+                </div>
+            </div>
+        </footer>
+        {% block content %}
+        {% endblock %}
+
+    </body>
 </html>
